@@ -1,0 +1,13 @@
+<div class="container mt-6"></div>
+
+<h1>Cocktails#index list of cocktails</h1>
+<p>Find me in app/views/cocktails/index.html.erb</p>
+<ul>
+  <% @cocktails.each do |cocktail| %>
+  <li><%= cocktail.name  %></li>
+  <p> <%= link_to 'details', cocktail_path(cocktail) %> </p>
+  <% end %>
+  <%= link_to 'add new cocktail', new_cocktail_path %>
+</ul>
+
+
