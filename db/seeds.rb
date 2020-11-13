@@ -5,21 +5,54 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'JSON'
+require 'open-uri'
 
-puts 'Destroying all your cocktails'
+puts 'Destroying all cocktails'
 
-Ingredient.destroy_all
-Cocktail.destroy_all
-Dose.destroy_all
+# Ingredient.destroy_all
+# Cocktail.destroy_all
+# Dose.destroy_all
 
-puts "Creating new"
+# puts "Creating new"
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+# Ingredient.create(name: "lemon")
+# Ingredient.create(name: "ice")
+# Ingredient.create(name: "mint leaves")
+# Ingredient.create(name: "mint leaves")
+# Ingredient.create(name: "mint leaves")
 
-Cocktail.create(name: "gin and tonic")
-Cocktail.create(name: "mai tai")
-Cocktail.create(name: "mojito")
+# Cocktail.create(name: "gin and tonic")
+# Cocktail.create(name: "mai tai")
+# Cocktail.create(name: "mojito")
+url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+ingredients = JSON.parse(ingredients_serialized)
+
+ingredients["drinks"].each do |ingredient|
+  Ingredient.create(name: ingredient["strIngredient1"])
+end
+
+url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
+cocktails_serialized = open(url).read
+
+cocktails = JSON.parse(cocktails_serialized)
+cocktails["drinks"].each do |cocktail|
+  Cocktail.create(name: cocktail["strDrink"])
+end
+
+# puts "Destroy ingredients"
+# Ingredient.destroy_all if Rails.env.development?
+
+# puts "Destroy Cocktails"
+# Cocktail.destroy_all if Rails.env.development?
+
+# puts "Create ingredients"
+# url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+# ingredients = JSON.parse(open(url).read)
+# ingredients["drinks"].each do |ingredient|
+#   i = Ingredient.create(name: ingredient["strIngredient1"])
+#   puts "create #{i.name}"
+# end
 
 puts "Created #{Cocktail.count} cocktails!"

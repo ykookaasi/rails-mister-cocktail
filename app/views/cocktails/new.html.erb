@@ -1,10 +1,14 @@
-<div class="container mt-6">
-  <h1>Cocktails#new</h1>
-  <p>Enter your new cocktail and click sumbit </p>
-    <%= simple_form_for(@cocktail) do |f| %>
-     <%= f.input :name %>
-     <%= f.submit %>
-    <% end %>
-    <%= link_to 'back to list', cocktails_path %>
-</div>
 
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Cocktail name?</h1>
+
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+        <%= link_to 'back to list', cocktails_path %>
+    </div>
+  </div>
+</div>
