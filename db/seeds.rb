@@ -14,7 +14,7 @@ Ingredient.destroy_all
 Cocktail.destroy_all
 Dose.destroy_all
 
-# puts "Creating new"
+puts "Creating new"
 
 # Ingredient.create(name: "lemon")
 # Ingredient.create(name: "ice")
