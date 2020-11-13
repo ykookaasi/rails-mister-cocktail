@@ -10,9 +10,7 @@ require 'open-uri'
 
 puts 'Destroying all cocktails'
 
-Ingredient.destroy_all
 Cocktail.destroy_all
-Dose.destroy_all
 
 puts "Creating new"
 
@@ -55,4 +53,4 @@ end
 #   puts "create #{i.name}"
 # end
 
-puts "Created #{Ingredien.count} ingredients!"
+puts "Created #{Ingredient.count} ingredients!"
