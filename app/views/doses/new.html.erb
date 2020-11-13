@@ -1,10 +1,10 @@
 <div class="container mt-4">
   <h1>Add a new ingredient</h1>
-  <p>Add an ingredient and it's amount</p>
+  <p>Add an ingredient and specify it's amount</p>
 
   <%= simple_form_for([ @cocktail, @dose ]) do |f| %>
     <%= f.association :ingredient %>
-    <%= f.input :description %>
+    <%= f.input :description, label: 'Dose/Amount' %>
     <%= f.submit :submit, class: "btn btn-success" %>
   <% end %>
 </div>
