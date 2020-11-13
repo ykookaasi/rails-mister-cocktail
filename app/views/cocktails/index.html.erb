@@ -6,19 +6,15 @@
   </div>
 </div>
 
-<%= cl_image_tag("tgqxo9bn991as3o3rp5x", width: 400, height: 300, crop: :fill) %>
-<!-- for face detection -->
-<%= cl_image_tag("tgqxo9bn991as3o3rp5x", width: 150, height: 150, crop: :thumb, gravity: :face) %>
-
-
 <div class="container mt-4">
   <h1 class="text-center">YOUR COCKTAILS COLLECTION</h1>
-  <%= link_to 'Add new cocktail', new_cocktail_path, class: 'btn btn-ghost' %>
+  <div class="text-center"=><%= link_to 'Add new cocktail', new_cocktail_path, class: 'btn btn-ghost' %></div>
+  <br>
   <p class="text-center">Click to see and edit ingredients</p>
   <ul>
     <div class="cards">
       <% @cocktails.each do |cocktail| %>
-        <div class="card"  style="background-image: linear-gradient(rgba(55, 63, 81,0.4), rgba(55, 63, 81,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+        <div class="card"  style="background-image: linear-gradient(rgba(55, 63, 81,0.4), rgba(55, 63, 81,0.2)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>');">
           <div class="card-description">
             <p><%= cocktail.name  %></p>
           </div>
