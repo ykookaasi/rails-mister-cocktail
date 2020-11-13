@@ -33,13 +33,13 @@ ingredients["drinks"].each do |ingredient|
   Ingredient.create(name: ingredient["strIngredient1"])
 end
 
-url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
-cocktails_serialized = open(url).read
+# url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
+# cocktails_serialized = open(url).read
 
-cocktails = JSON.parse(cocktails_serialized)
-cocktails["drinks"].each do |cocktail|
-  Cocktail.create(name: cocktail["strDrink"])
-end
+# cocktails = JSON.parse(cocktails_serialized)
+# cocktails["drinks"].each do |cocktail|
+#   Cocktail.create(name: cocktail["strDrink"])
+# end
 
 # puts "Destroy ingredients"
 # Ingredient.destroy_all if Rails.env.development?
@@ -55,4 +55,4 @@ end
 #   puts "create #{i.name}"
 # end
 
-puts "Created #{Cocktail.count} cocktails!"
+puts "Created #{Ingredien.count} ingredients!"
