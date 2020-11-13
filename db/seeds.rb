@@ -10,9 +10,9 @@ require 'open-uri'
 
 puts 'Destroying all cocktails'
 
-# Ingredient.destroy_all
-# Cocktail.destroy_all
-# Dose.destroy_all
+Ingredient.destroy_all
+Cocktail.destroy_all
+Dose.destroy_all
 
 # puts "Creating new"
 
