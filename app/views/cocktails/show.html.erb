@@ -9,13 +9,12 @@
       <p>Ingredients</p>
     <% @cocktail.doses.each do |dose| %>
      <p><%= dose.ingredient.name %> : <%= dose.description %>
-     <i class="far fa-trash-alt"></i>
      <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure? This can't be undone" }%></p>
     <% end %>
     <ul>
-      <li><i class="fas fa-plus"></i><span><%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail)%></span></li>
+      <li><%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail)%></li>
       <li><%= link_to "Delete this cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure you want to delete this cocktail?" } %></li>
-      <li><i class="fas fa-redo"></i> <span><%= link_to "go back to list", cocktails_path %></span></li>
+      <li><%= link_to "go back to list", cocktails_path %></li>
     </ul>
   </div>
 
